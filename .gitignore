@@ -1,0 +1,8 @@
+__pycache__
+dist/
+*.рус
+.venv/
+.coverage
+coverage.xml
+.pytest_cache/
+.env
