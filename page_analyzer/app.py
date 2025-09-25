@@ -160,13 +160,6 @@ def get_data_from_url_checks(id):
             return cur.fetchall()
 
 
-def parse_page(response):
-    status_code = response.status_code
-    bs = BeautifulSoup(response.text, "html.parser")
-    title = bs.find("title").text
-    description = bs.find("meta", {"name": "description"}).get("content")
-    header = bs.find("h1").text
-    return status_code, header, title, description
 
 
 def insert_data_into_url_checks(id, status_code, h1, title, description):
