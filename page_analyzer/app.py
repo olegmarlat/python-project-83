@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, flash, request, redirect
+from page_analyzer import parse_page
 import psycopg2
 
 
@@ -45,26 +46,6 @@ def urls_post():
         return render_template("index.html", 422)
 
 
-@app.post("/urls")
-def urls_post():
-    actual_url = request.form.get("url")
-    if validate_url(actual_url):
-        scheme = urlparse(actual_url).scheme
-        hostname = urlparse(actual_url).hostname
-        url = f"{scheme}://{hostname}"
-        if check_url_exists(url):
-            url_id = insert_url_in_urls(url)
-            flash("Страница успешно добавлена", category="success")
-            return redirect(url_for("url_page", id=url_id))
-        else:
-            flash("Страница уже существует", category="info")
-            url_id = find_id_by_url(url)
-            return redirect(url_for("url_page", id=url_id))
-    elif not validate_url(actual_url) or len(actual_url) > 255:
-        flash("Некорректный URL", category="danger")
-        return render_template("index.html"), 422
-
-
 @app.get("/urls/<int:id>")
 def url_page(id):
     page = get_data_from_urls(id)
@@ -72,7 +53,11 @@ def url_page(id):
     if page:
         id, name, created_at = page
         return render_template(
-            "url_page.html", name=name, id=id, created_at=created_at, data=checks
+            "url_page.html",
+            name=name,
+            id=id,
+            created_at=created_at,
+            data=checks
         )
     else:
         return render_template("404.html")
@@ -158,8 +143,6 @@ def get_data_from_url_checks(id):
         with conn.cursor(cursor_factory=NamedTupleCursor) as cur:
             cur.execute(sql, (id,))
             return cur.fetchall()
-
-
 
 
 def insert_data_into_url_checks(id, status_code, h1, title, description):
