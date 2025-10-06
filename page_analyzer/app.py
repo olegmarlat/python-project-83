@@ -1,14 +1,14 @@
-from flask import Flask, render_template, url_for, flash, request, redirect
-from page_analyzer import parse_page
-import psycopg2
-
-
-from dotenv import load_dotenv
 import os
+from urllib.parse import urlparse
+
+import psycopg2
+import requests
+from dotenv import load_dotenv
+from flask import Flask, flash, redirect, render_template, request, url_for
 from psycopg2.extras import NamedTupleCursor
 from validators import url as validate_url
-from urllib.parse import urlparse
-import requests
+
+from page_analyzer import parse_page
 
 app = Flask(__name__)
 load_dotenv()
@@ -53,11 +53,7 @@ def url_page(id):
     if page:
         id, name, created_at = page
         return render_template(
-            "url_page.html",
-            name=name,
-            id=id,
-            created_at=created_at,
-            data=checks
+            "url_page.html", name=name, id=id, created_at=created_at, data=checks
         )
     else:
         return render_template("404.html")

@@ -1,7 +1,8 @@
-from flask import request, render_template, flash, redirect, url_for
 from urllib.parse import urlparse
-from validators import url as validate_url
+
 from app import check_url_exists, find_id_by_url, insert_url_in_urls
+from flask import flash, redirect, render_template, request, url_for
+from validators import url as validate_url
 
 
 def urls_post():
