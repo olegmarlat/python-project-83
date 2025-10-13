@@ -17,10 +17,7 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = [
-    #'ruff'
-    "pytest>=8.3.3,<9",
-]
+dev = ["ruff", "pytest>=8.3.3,<9"]
 
 [tool.ruff]
 lint.extend-select = ['E', 'W', 'F', 'I', 'UP']
