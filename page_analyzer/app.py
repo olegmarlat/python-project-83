@@ -53,7 +53,11 @@ def url_page(id):
     if page:
         id, name, created_at = page
         return render_template(
-            "url_page.html", name=name, id=id, created_at=created_at, data=checks
+            "url_page.html",
+            name=name,
+            id=id,
+            created_at=created_at,
+            data=checks
         )
     else:
         return render_template("404.html")
