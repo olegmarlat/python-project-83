@@ -17,21 +17,15 @@ jobs:
         run: |
           pip install uv
           make install
-      - name: Run linter and pytest
+      - name: Run linter
         run: |
-          make check
-      - name: Run test coverage
-        run: |
-          make test-coverage
-
+          make lint
       - name: SonarQubeScan
         uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=lyovaparsyan94_python-project-50
-            -Dsonar.organization=lyovaparsyan94
-            -Dsonar.python.coverage.reportPaths=coverage.xml
-            -Dsonar.coverage.exclusions=tests/**
-            -Dsonar.exclusions=tests/**
+            -Dsonar.projectKey=olegmarlat_python-project-83
+            -Dsonar.organization=olegmarlat
+          
