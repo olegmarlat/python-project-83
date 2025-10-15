@@ -46,6 +46,15 @@ def urls_post():
         return render_template("index.html", 422)
 
 
+@app.route('/urls')
+def urls_get():
+    urls = parse_page.all_urls()
+    return render_template(
+        'urls.html',
+        urls=urls
+    )
+
+
 @app.get("/urls/<int:id>")
 def url_page(id):
     page = get_data_from_urls(id)
