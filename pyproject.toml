@@ -3,7 +3,7 @@ name = "hexlet-code"
 version = "0.1.0"
 description = "page_analyzer"
 authors = [{ name = "Oleg Latypov", email = "latol179@mail.ru" }]
-requires-python = "~=3.10"
+requires-python = ">=3.10"
 readme = "README.md"
 dependencies = [
     "flask>=3.1.0,<4",
