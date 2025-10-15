@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS urls (
 
 DROP TABLE IF EXISTS url_checks CASCADE;
 
-CREATE TABLE IF NOT EXISTS url_cheks (
+CREATE TABLE IF NOT EXISTS url_checks (
     id SERIAL PRIMARY KEY,
     url_id INTEGER NOT NULL REFERENCES urls (id),
     status_code INTEGER,
