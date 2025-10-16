@@ -8,7 +8,7 @@ from flask import Flask, flash, redirect, render_template, request, url_for
 from psycopg2.extras import NamedTupleCursor
 from validators import url as validate_url
 
-from page_analyzer.parser import parse_page
+from .parser import parse_page
 
 app = Flask(__name__)
 load_dotenv()
@@ -48,7 +48,7 @@ def urls_post():
 
 @app.route('/urls')
 def urls_get():
-    urls = parse_page.all_urls()
+    urls = get_list_of_urls.all_urls()
     return render_template(
         'urls.html',
         urls=urls
