@@ -24,7 +24,11 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: "https://sonarcloud.io" 
         with:
           args: >
             -Dsonar.projectKey=olegmarlat_python-project-83
-            -Dsonar.organization=olegmarlat   
+            -Dsonar.organization=olegmarlat     
+            -Dsonar.sources=code
+            -Dsonar.tests=tests
+            -Dsonar.python.coverage.reportPaths=coverage.xml
