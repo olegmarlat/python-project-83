@@ -8,7 +8,7 @@ from flask import Flask, flash, redirect, render_template, request, url_for
 from psycopg2.extras import NamedTupleCursor
 from validators import url as validate_url
 
-from .parser import parse_page
+from page_analyzer.parser import parse_page
 
 app = Flask(__name__)
 load_dotenv()
