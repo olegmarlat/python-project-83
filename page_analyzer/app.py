@@ -43,7 +43,7 @@ def urls_post():
             return redirect(url_for("url_page", id=url_id))
     elif not validate_url(actual_url) or len(actual_url) > 255:
         flash("Некорректный URL", category="danger")
-        return render_template("index.html", 422)
+        return render_template("index.html"), 422
 
 
 @app.route('/urls')
