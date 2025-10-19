@@ -1,7 +1,0 @@
-{
-    "python.testing.pytestArgs": [
-        "page_analyzer"
-    ],
-    "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
-}
