@@ -66,7 +66,7 @@ def url_page(id):
             name=name,
             id=id,
             created_at=created_at,
-            data=checks
+            checks=checks
         )
     else:
         return render_template("404.html")
