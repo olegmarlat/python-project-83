@@ -48,7 +48,7 @@ def urls_post():
 
 @app.route('/urls')
 def urls_get():
-    urls = get_list_of_urls.all_urls()
+    urls = get_list_of_urls()
     return render_template(
         'urls.html',
         urls=urls
