@@ -1,34 +1,19 @@
-name: Python CI
-
+name: Build
 on:
-  - push
-  - pull_request
-
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
-  build:
+  sonarqube:
+    name: SonarQube
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-      - name: Install dependencies
-        run: |
-          pip install uv
-          make install
-      - name: Run linter
-        run: |
-          make lint
-      - name: SonarQubeScan
-        uses: SonarSource/sonarqube-scan-action@v5
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: "https://sonarcloud.io" 
-        with:
-          args: >
-            -Dsonar.projectKey=olegmarlat_python-project-83
-            -Dsonar.organization=olegmarlat     
-            -Dsonar.sources=code
-            -Dsonar.tests=tests
-            -Dsonar.python.coverage.reportPaths=coverage.xml
