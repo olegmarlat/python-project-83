@@ -18,15 +18,9 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-<<<<<<< HEAD
     "ruff>=0.14.0",
     "pytest>=8.3.3,<9",
     
-=======
-    "ruff>=0.9.9",
-    "pytest>=8.3.3,<9",
-    "pytest-cov>=7.0.0",
->>>>>>> 6406d3bb809a3dce78d0217eb2937585e3dd01b9
 ]
 
 [tool.ruff]
