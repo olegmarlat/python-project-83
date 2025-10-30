@@ -16,7 +16,7 @@ dependencies = [
     "beautifulsoup4>=4.12.3,<5",
 ]
 
-[dependency-groups]
+[project.optional-dependencies]
 dev = [
     "ruff>=0.14.0",
     "pytest>=8.3.3,<9",
