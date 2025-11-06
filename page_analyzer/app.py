@@ -1,10 +1,17 @@
 import os
+import requests
 from urllib.parse import urlparse
 
 import psycopg2
-import requests
 from dotenv import load_dotenv
-from flask import Flask, flash, redirect, render_template, request, url_for
+from flask import (
+    Flask,
+    flash,
+    redirect,
+    render_template,
+    request,
+    url_for
+)
 from psycopg2.extras import NamedTupleCursor
 from validators import url as validate_url
 
