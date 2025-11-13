@@ -1,6 +1,7 @@
 ### Hexlet tests and linter status:
 
 [![Actions Status](https://github.com/olegmarlat/python-project-83/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/olegmarlat/python-project-83/actions)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=olegmarlat_python-project-83&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=olegmarlat_python-project-83)
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=olegmarlat_python-project-83)](https://sonarcloud.io/summary/new_code?id=olegmarlat_python-project-83)
 
