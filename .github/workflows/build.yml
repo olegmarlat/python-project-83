@@ -20,3 +20,4 @@ jobs:
           args: >
             -Dsonar.projectKey=olegmarlat_python-project-83
             -Dsonar.organization=olegmarlat
+            -Dsonar.host.url=https://sonarcloud.io
