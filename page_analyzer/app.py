@@ -84,7 +84,7 @@ def url_check(id):
     url = get_data_from_urls(id)[1]
     try:
         response = requests.get(url, allow_redirects=True)
-        if response is None or response.status_code != 200:
+        if not response.ok:
             flash("Произошла ошибка при проверке", category="danger")
             return redirect(url_for("url_page", id=id))
     except requests.exceptions.RequestException:
