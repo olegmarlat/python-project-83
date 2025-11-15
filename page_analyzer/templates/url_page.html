@@ -6,21 +6,19 @@
     <div class="table-responsive">
       <table class="table table-bordered table-hover text-nowrap" data-test="url">
         <thead>
-          <tbody>
           <tr>
-            <td>ID</td>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Дата создания</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
             <td>{{ id }}</td>
-          </tr>
-          <tr>
-            <td>Имя</td>
             <td>{{ name }}</td>
-          </tr>
-          <tr>
-            <td>Дата создания</td>
             <td>{{ created_at }}</td>
           </tr>
         </tbody>
-        </thead>
       </table>
     </div>
 
