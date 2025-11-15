@@ -67,11 +67,11 @@ def url_page(id):
     page = get_data_from_urls(id)
     checks = get_data_from_url_checks(id)
     if page:
-        id, name, created_at = page
+        url_id, name, created_at = page
         return render_template(
             "url_page.html",
             name=name,
-            id=id,
+            id=url_id,
             created_at=created_at,
             checks=checks
         )
